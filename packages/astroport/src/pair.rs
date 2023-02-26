@@ -111,7 +111,7 @@ pub enum QueryMsg {
     QueryComputeD {},
 }
 
-/// This struct is used to return a query result with the total amount of LP tokens and assets in a specific pool.
+/// This struct is used to return a query result with the total amount of LP tokens and assets in a bazific pool.
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 pub struct PoolResponse {
     /// The assets in the pool together with asset amounts

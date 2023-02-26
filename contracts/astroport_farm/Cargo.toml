@@ -1,7 +1,7 @@
 [package]
-name = "spectrum-astroport-farm"
+name = "baz-astroport-farm"
 version = "1.0.0"
-authors = ["Spectrum"]
+authors = ["baz"]
 edition = "2021"
 description = "Contract to stake LP token and auto collect rewards"
 
@@ -36,7 +36,7 @@ backtraces = ["cosmwasm-std/backtraces"]
 cw20 = "0.13.2"
 cosmwasm-std = "1.0"
 cw-storage-plus = "0.13.2"
-spectrum = { version = "1.0.0", path = "../../packages/spectrum" }
+baz = { version = "1.0.0", path = "../../packages/baz" }
 schemars = "0.8.1"
 serde = { version = "1.0.137", default-features = false, features = ["derive"] }
 thiserror = { version = "1.0.31" }

@@ -6,13 +6,13 @@ use astroport::asset::{native_asset_info, Asset, AssetInfo, ULUNA_DENOM, AssetIn
 
 use astroport::common::{propose_new_owner, drop_ownership_proposal, claim_ownership};
 use cosmwasm_std::{entry_point, to_binary, Binary, CosmosMsg, Deps, DepsMut, Env, MessageInfo, Order, Response, StdError, StdResult, Uint128, WasmMsg, attr, Addr};
-use spectrum::fees_collector::{AssetWithLimit, BalancesResponse, CollectSimulationResponse, ExecuteMsg, InstantiateMsg, MigrateMsg, QueryMsg};
+use baz::fees_collector::{AssetWithLimit, BalancesResponse, CollectSimulationResponse, ExecuteMsg, InstantiateMsg, MigrateMsg, QueryMsg};
 use std::collections::{HashMap, HashSet};
-use spectrum::adapters::asset::AssetEx;
+use baz::adapters::asset::AssetEx;
 
 /// ## Description
-/// Creates a new contract with the specified parameters in the [`InstantiateMsg`].
-/// Returns the [`Response`] with the specified attributes if the operation was successful, or a [`ContractError`] if the contract was not created.
+/// Creates a new contract with the bazified parameters in the [`InstantiateMsg`].
+/// Returns the [`Response`] with the bazified attributes if the operation was successful, or a [`ContractError`] if the contract was not created.
 #[cfg_attr(not(feature = "library"), entry_point)]
 pub fn instantiate(
     deps: DepsMut,
@@ -470,7 +470,7 @@ pub fn query(deps: Deps, env: Env, msg: QueryMsg) -> StdResult<Binary> {
 }
 
 /// ## Description
-/// Returns token balances for specific tokens using a [`ConfigResponse`] object.
+/// Returns token balances for bazific tokens using a [`ConfigResponse`] object.
 fn query_get_balances(deps: Deps, env: Env, assets: Vec<AssetInfo>) -> StdResult<BalancesResponse> {
     let mut resp = BalancesResponse { balances: vec![] };
 

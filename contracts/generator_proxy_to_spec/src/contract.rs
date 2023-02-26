@@ -9,12 +9,12 @@ use crate::state::{Config, CONFIG};
 use astroport::generator_proxy::{
     CallbackMsg, ConfigResponse, Cw20HookMsg, ExecuteMsg, InstantiateMsg, MigrateMsg, QueryMsg,
 };
-use spectrum::lp_staking::{
-    Cw20HookMsg as SpecCw20HookMsg, ExecuteMsg as SpecExecuteMsg, RewardInfoResponse as SpecRewardInfoResponse, QueryMsg as SpecQueryMsg
+use baz::lp_staking::{
+    Cw20HookMsg as bazCw20HookMsg, ExecuteMsg as bazExecuteMsg, RewardInfoResponse as bazRewardInfoResponse, QueryMsg as bazQueryMsg
 };
 
 /// ## Description
-/// Creates a new contract with the specified parameters in the [`InstantiateMsg`].
+/// Creates a new contract with the bazified parameters in the [`InstantiateMsg`].
 /// Returns the default object of type [`Response`] if the operation was successful,
 /// or a [`ContractError`] if the contract was not created.
 /// ## Params
@@ -90,7 +90,7 @@ pub fn execute(
 /// ## Description
 /// Receives a message of type [`Cw20ReceiveMsg`] and processes it depending on the received template.
 /// If the template is not found in the received message, then an [`ContractError`] is returned,
-/// otherwise returns the [`Response`] with the specified attributes if the operation was successful
+/// otherwise returns the [`Response`] with the bazified attributes if the operation was successful
 /// ## Params
 /// * **deps** is the object of type [`DepsMut`].
 ///
@@ -120,7 +120,7 @@ fn receive_cw20(
                 msg: to_binary(&Cw20ExecuteMsg::Send {
                     contract: cfg.reward_contract_addr.to_string(),
                     amount: cw20_msg.amount,
-                    msg: to_binary(&SpecCw20HookMsg::Bond {
+                    msg: to_binary(&bazCw20HookMsg::Bond {
                         staker_addr: None
                     })?,
                 })?,
@@ -133,7 +133,7 @@ fn receive_cw20(
 
 /// ## Description
 /// Withdraw pending rewards. Returns an [`ContractError`] on failure,
-/// otherwise returns the [`Response`] object with the specified submessages.
+/// otherwise returns the [`Response`] object with the bazified submessages.
 ///
 /// ## Params
 /// * **deps** is the object of type [`DepsMut`].
@@ -146,7 +146,7 @@ fn update_rewards(deps: DepsMut) -> Result<Response, ContractError> {
         .push(SubMsg::new(CosmosMsg::Wasm(WasmMsg::Execute {
             contract_addr: cfg.reward_contract_addr.to_string(),
             funds: vec![],
-            msg: to_binary(&SpecExecuteMsg::Withdraw {
+            msg: to_binary(&bazExecuteMsg::Withdraw {
                 amount: None,
             })?,
         })));
@@ -156,7 +156,7 @@ fn update_rewards(deps: DepsMut) -> Result<Response, ContractError> {
 
 /// ## Description
 /// Sends rewards to the recipient. Returns an [`ContractError`] on failure,
-/// otherwise returns the [`Response`] object with the specified submessages.
+/// otherwise returns the [`Response`] object with the bazified submessages.
 ///
 /// ## Params
 /// * **deps** is the object of type [`DepsMut`].
@@ -198,7 +198,7 @@ fn send_rewards(
 
 /// # Description
 /// Withdrawal the rewards. Returns an [`ContractError`] on
-/// failure, otherwise returns the [`Response`] object with the specified submessages if the operation was successful.
+/// failure, otherwise returns the [`Response`] object with the bazified submessages if the operation was successful.
 /// # Params
 /// * **deps** is the object of type [`DepsMut`].
 ///
@@ -241,7 +241,7 @@ fn withdraw(
     response.messages.push(SubMsg::new(WasmMsg::Execute {
         contract_addr: cfg.reward_contract_addr.to_string(),
         funds: vec![],
-        msg: to_binary(&SpecExecuteMsg::Unbond {
+        msg: to_binary(&bazExecuteMsg::Unbond {
             amount,
         })?,
     }));
@@ -262,7 +262,7 @@ fn withdraw(
 
 /// # Description
 /// Handle the callbacks describes in the [`CallbackMsg`]. Returns an [`ContractError`] on failure, otherwise returns the [`Response`]
-/// object with the specified submessages if the operation was successful.
+/// object with the bazified submessages if the operation was successful.
 /// # Params
 /// * **deps** is the object of type [`DepsMut`].
 ///
@@ -294,7 +294,7 @@ pub fn handle_callback(
 
 /// # Description
 /// Transfers lp tokens after withdrawal to the recipient. Returns an [`ContractError`] on failure,
-/// otherwise returns the [`Response`] object with the specified submessages if the operation was successful.
+/// otherwise returns the [`Response`] object with the bazified submessages if the operation was successful.
 /// # Params
 /// * **deps** is the object of type [`DepsMut`].
 ///
@@ -361,9 +361,9 @@ pub fn query(deps: Deps, env: Env, msg: QueryMsg) -> StdResult<Binary> {
             reward_token_addr: cfg.reward_token_addr.to_string(),
         }),
         QueryMsg::Deposit {} => {
-            let res: SpecRewardInfoResponse = deps.querier.query_wasm_smart(
+            let res: bazRewardInfoResponse = deps.querier.query_wasm_smart(
                 cfg.reward_contract_addr,
-                &SpecQueryMsg::RewardInfo {
+                &bazQueryMsg::RewardInfo {
                     time_seconds: Some(env.block.time.seconds()),
                     staker_addr: env.contract.address.to_string(),
                 },
@@ -385,9 +385,9 @@ pub fn query(deps: Deps, env: Env, msg: QueryMsg) -> StdResult<Binary> {
             to_binary(&reward_amount)
         }
         QueryMsg::PendingToken {} => {
-            let res: SpecRewardInfoResponse = deps.querier.query_wasm_smart(
+            let res: bazRewardInfoResponse = deps.querier.query_wasm_smart(
                 cfg.reward_contract_addr,
-                &SpecQueryMsg::RewardInfo {
+                &bazQueryMsg::RewardInfo {
                     time_seconds: Some(env.block.time.seconds()),
                     staker_addr: env.contract.address.to_string(),
                 },

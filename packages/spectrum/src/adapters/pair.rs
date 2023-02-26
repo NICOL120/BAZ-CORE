@@ -33,7 +33,7 @@ impl Pair {
         })
     }
 
-    /// Generate msg for swapping specified asset
+    /// Generate msg for swapping bazified asset
     pub fn swap_msg(
         &self,
         asset: &Asset,

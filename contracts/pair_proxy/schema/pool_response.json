@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "PoolResponse",
-  "description": "This struct is used to return a query result with the total amount of LP tokens and assets in a specific pool.",
+  "description": "This struct is used to return a query result with the total amount of LP tokens and assets in a bazific pool.",
   "type": "object",
   "required": [
     "assets",

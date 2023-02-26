@@ -52,7 +52,7 @@ pub enum ExecuteMsg {
         /// The amount of generators
         checkpoint_generator_limit: Option<u32>,
     },
-    /// Setup generators with their respective allocation points.
+    /// Setup generators with their rebaztive allocation points.
     /// ## Executor
     /// Only the owner or generator controller can execute this.
     SetupPools {
@@ -130,7 +130,7 @@ pub enum ExecuteMsg {
         /// Proxy contracts to remove
         remove: Option<Vec<String>>,
     },
-    /// Sets a new proxy contract for a specific generator
+    /// Sets a new proxy contract for a bazific generator
     /// Sets a proxy for the pool
     /// ## Executor
     /// Only the current owner or generator controller can execute this
@@ -149,7 +149,7 @@ pub enum ExecuteMsg {
         /// Tokens to remove
         remove: Option<Vec<AssetInfo>>,
     },
-    /// Sets the allocation point to zero for the specified pool
+    /// Sets the allocation point to zero for the bazified pool
     DeactivatePool {
         lp_token: String,
     },
@@ -157,7 +157,7 @@ pub enum ExecuteMsg {
     DeactivatePools {
         pair_types: Vec<PairType>,
     },
-    /// Updates the boost emissions for specified user and generators
+    /// Updates the boost emissions for bazified user and generators
     CheckpointUserBoost {
         generators: Vec<String>,
         user: Option<String>,
@@ -229,26 +229,26 @@ pub enum QueryMsg {
     ActivePoolLength {},
     /// PoolLength returns the length of the array that contains all the instantiated pool generators
     PoolLength {},
-    /// Deposit returns the LP token amount deposited in a specific generator
+    /// Deposit returns the LP token amount deposited in a bazific generator
     Deposit { lp_token: String, user: String },
-    /// Returns the current virtual amount in a specific generator
+    /// Returns the current virtual amount in a bazific generator
     UserVirtualAmount { lp_token: String, user: String },
     /// Returns the total virtual supply of generator
     TotalVirtualSupply { generator: String },
-    /// PendingToken returns the amount of rewards that can be claimed by an account that deposited a specific LP token in a generator
+    /// PendingToken returns the amount of rewards that can be claimed by an account that deposited a bazific LP token in a generator
     PendingToken { lp_token: String, user: String },
     /// Config returns the main contract parameters
     Config {},
-    /// RewardInfo returns reward information for a specified LP token
+    /// RewardInfo returns reward information for a bazified LP token
     RewardInfo { lp_token: String },
-    /// OrphanProxyRewards returns orphaned reward information for the specified LP token
+    /// OrphanProxyRewards returns orphaned reward information for the bazified LP token
     OrphanProxyRewards { lp_token: String },
-    /// PoolInfo returns information about a pool associated with the specified LP token alongside
+    /// PoolInfo returns information about a pool associated with the bazified LP token alongside
     /// the total pending amount of ASTRO and proxy rewards claimable by generator stakers (for that LP token)
     PoolInfo { lp_token: String },
-    /// SimulateFutureReward returns the amount of ASTRO that will be distributed until a future block and for a specific generator
+    /// SimulateFutureReward returns the amount of ASTRO that will be distributed until a future block and for a bazific generator
     SimulateFutureReward { lp_token: String, future_block: u64 },
-    /// Returns a list of stakers for a specific generator
+    /// Returns a list of stakers for a bazific generator
     PoolStakers {
         lp_token: String,
         start_after: Option<String>,
@@ -315,7 +315,7 @@ pub struct UserInfoV2 {
     pub virtual_amount: Uint128,
 }
 
-/// This structure holds the response returned when querying for the token addresses used to reward a specific generator
+/// This structure holds the response returned when querying for the token addresses used to reward a bazific generator
 #[derive(Serialize, Deserialize, PartialEq)]
 pub struct RewardInfoResponse {
     /// The address of the base reward token
@@ -416,7 +416,7 @@ pub enum Cw20HookMsg {
 }
 
 /// This structure holds the parameters used to return information about a staked in
-/// a specific generator.
+/// a bazific generator.
 #[derive(Serialize, Deserialize, PartialEq, Debug)]
 pub struct StakerResponse {
     // The staker's address

@@ -14,13 +14,13 @@ use cosmwasm_std::{
     Timestamp, Uint128, WasmMsg,
 };
 use cw20::{AllAccountsResponse, AllAllowancesResponse, AllowanceInfo, AllowanceResponse, BalanceResponse, Cw20ExecuteMsg, Cw20ReceiveMsg, Expiration, Logo, MarketingInfoResponse, MinterResponse, TokenInfoResponse};
-use spectrum::adapters::generator::Generator;
-use spectrum::adapters::pair::Pair;
-use spectrum::astroport_farm::{
+use baz::adapters::generator::Generator;
+use baz::adapters::pair::Pair;
+use baz::astroport_farm::{
     CallbackMsg, Cw20HookMsg, ExecuteMsg, InstantiateMsg, QueryMsg, RewardInfoResponse,
     RewardInfoResponseItem,
 };
-use spectrum::compound_proxy::{Compounder, ExecuteMsg as CompoundProxyExecuteMsg};
+use baz::compound_proxy::{Compounder, ExecuteMsg as CompoundProxyExecuteMsg};
 
 const ASTRO_TOKEN: &str = "astro";
 const REWARD_TOKEN: &str = "reward";
@@ -532,7 +532,7 @@ fn bond(deps: &mut OwnedDeps<MockStorage, MockApi, WasmMockQuerier>) -> Result<(
         amount: Uint128::from(100u128),
     };
     let res = execute(deps.as_mut(), env.clone(), info.clone(), msg);
-    assert_error(res, "spectrum_astroport_farm::state::RewardInfo not found");
+    assert_error(res, "baz_astroport_farm::state::RewardInfo not found");
 
     // unbond for user_1
     let info = mock_info(USER_1, &[]);

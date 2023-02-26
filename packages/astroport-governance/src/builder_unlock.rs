@@ -38,7 +38,7 @@ pub struct Schedule {
 /// This structure stores the parameters used to describe an ASTRO allocation.
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema, Default)]
 pub struct AllocationParams {
-    /// Total amount of ASTRO tokens allocated to a specific account
+    /// Total amount of ASTRO tokens allocated to a bazific account
     pub amount: Uint128,
     /// Parameters controlling the unlocking process
     pub unlock_schedule: Schedule,

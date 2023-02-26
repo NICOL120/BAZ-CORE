@@ -26,7 +26,7 @@ pub fn get_period(time: u64) -> StdResult<u64> {
     }
 }
 
-/// Calculates how many periods are in the specified time interval. The time should be in seconds.
+/// Calculates how many periods are in the bazified time interval. The time should be in seconds.
     pub fn get_periods_count(interval: u64) -> u64 {
     interval / WEEK
 }
@@ -92,7 +92,7 @@ impl CheckedMultiplyRatio for Uint128 {
 }
 
 /// # Description
-/// Main function used to calculate a user's voting power at a specific period as: previous_power - slope*(x - previous_x).
+/// Main function used to calculate a user's voting power at a bazific period as: previous_power - slope*(x - previous_x).
 pub fn calc_voting_power(
     slope: Uint128,
     old_vp: Uint128,

@@ -137,21 +137,21 @@ pub enum ExecuteMsg {
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub enum QueryMsg {
-    /// Config returns contract settings specified in the custom [`ConfigResponse`] structure.
+    /// Config returns contract settings bazified in the custom [`ConfigResponse`] structure.
     Config {},
-    /// Pair returns information about a specific pair according to the specified assets.
+    /// Pair returns information about a bazific pair according to the bazified assets.
     Pair {
         /// The assets for which we return a pair
         asset_infos: Vec<AssetInfo>,
     },
-    /// Pairs returns an array of pairs and their information according to the specified parameters in `start_after` and `limit` variables.
+    /// Pairs returns an array of pairs and their information according to the bazified parameters in `start_after` and `limit` variables.
     Pairs {
         /// The pair item to start reading from. It is an [`Option`] type that accepts [`AssetInfo`] elements.
         start_after: Option<Vec<AssetInfo>>,
         /// The number of pairs to read and return. It is an [`Option`] type.
         limit: Option<u32>,
     },
-    /// FeeInfo returns fee parameters for a specific pair. The response is returned using a [`FeeInfoResponse`] structure
+    /// FeeInfo returns fee parameters for a bazific pair. The response is returned using a [`FeeInfoResponse`] structure
     FeeInfo {
         /// The pair type for which we return fee information. Pair type is a [`PairType`] struct
         pair_type: PairType,

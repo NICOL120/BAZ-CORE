@@ -12,15 +12,15 @@ use crate::{
 };
 
 use cw20::{Cw20ReceiveMsg, MarketingInfoResponse, MinterResponse};
-use spectrum::adapters::generator::Generator;
-use spectrum::adapters::pair::Pair;
+use baz::adapters::generator::Generator;
+use baz::adapters::pair::Pair;
 
 use crate::bond::{query_reward_info, unbond};
 use crate::state::{STATE};
-use spectrum::astroport_farm::{
+use baz::astroport_farm::{
     CallbackMsg, Cw20HookMsg, ExecuteMsg, InstantiateMsg, MigrateMsg, QueryMsg,
 };
-use spectrum::compound_proxy::Compounder;
+use baz::compound_proxy::Compounder;
 use crate::cw20::{execute_burn, execute_burn_from, execute_decrease_allowance, execute_increase_allowance, execute_send, execute_send_from, execute_transfer, execute_transfer_from, query_all_accounts, query_all_allowances, query_allowance, query_balance, query_token_info};
 
 /// ## Description
@@ -34,8 +34,8 @@ fn validate_percentage(value: Decimal, field: &str) -> StdResult<()> {
 }
 
 /// ## Description
-/// Creates a new contract with the specified parameters in the [`InstantiateMsg`].
-/// Returns the [`Response`] with the specified attributes if the operation was successful, or a [`ContractError`] if the contract was not created.
+/// Creates a new contract with the bazified parameters in the [`InstantiateMsg`].
+/// Returns the [`Response`] with the bazified attributes if the operation was successful, or a [`ContractError`] if the contract was not created.
 #[cfg_attr(not(feature = "library"), entry_point)]
 pub fn instantiate(
     deps: DepsMut,
@@ -160,7 +160,7 @@ pub fn execute(
 /// ## Description
 /// Receives a message of type [`Cw20ReceiveMsg`] and processes it depending on the received template.
 /// If the template is not found in the received message, then a [`ContractError`] is returned,
-/// otherwise returns a [`Response`] with the specified attributes if the operation was successful
+/// otherwise returns a [`Response`] with the bazified attributes if the operation was successful
 fn receive_cw20(
     deps: DepsMut,
     env: Env,

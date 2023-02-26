@@ -33,7 +33,7 @@ pub enum ExecuteMsg {
     },
     /// Update the pair configuration
     UpdateConfig { params: Binary },
-    /// Claims bLUNA rewards and sends them to the specified receiver
+    /// Claims bLUNA rewards and sends them to the bazified receiver
     ClaimReward {
         /// An address which will receive the bLUNA reward
         receiver: Option<String>,
@@ -75,11 +75,11 @@ pub enum QueryMsg {
     ReverseSimulation { ask_asset: Asset },
     /// Returns information about cumulative prices (used for TWAPs) in a [`super::pair::CumulativePricesResponse`] object.
     CumulativePrices {},
-    /// Returns pending token rewards that can be claimed by a specific user using a [`Asset`] object.
+    /// Returns pending token rewards that can be claimed by a bazific user using a [`Asset`] object.
     PendingReward { user: String },
 }
 
-/// This struct is used to store bLUNA stableswap specific parameters.
+/// This struct is used to store bLUNA stableswap bazific parameters.
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub struct StablePoolParams {

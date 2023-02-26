@@ -23,7 +23,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "astroport-generator-proxy-to-spec"
+name = "astroport-generator-proxy-to-baz"
 version = "1.0.0"
 dependencies = [
  "astroport",
@@ -33,7 +33,7 @@ dependencies = [
  "cw20",
  "schemars",
  "serde",
- "spectrum",
+ "baz",
  "thiserror",
 ]
 
@@ -838,7 +838,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "spectrum"
+name = "baz"
 version = "1.0.0"
 dependencies = [
  "astroport",
@@ -852,7 +852,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "spectrum-astroport-farm"
+name = "baz-astroport-farm"
 version = "1.0.0"
 dependencies = [
  "astroport",
@@ -862,12 +862,12 @@ dependencies = [
  "cw20",
  "schemars",
  "serde",
- "spectrum",
+ "baz",
  "thiserror",
 ]
 
 [[package]]
-name = "spectrum-compound-proxy"
+name = "baz-compound-proxy"
 version = "1.0.0"
 dependencies = [
  "astroport",
@@ -879,12 +879,12 @@ dependencies = [
  "proptest",
  "schemars",
  "serde",
- "spectrum",
+ "baz",
  "thiserror",
 ]
 
 [[package]]
-name = "spectrum-fees-collector"
+name = "baz-fees-collector"
 version = "1.0.0"
 dependencies = [
  "astroport",
@@ -895,12 +895,12 @@ dependencies = [
  "cw20",
  "schemars",
  "serde",
- "spectrum",
+ "baz",
  "thiserror",
 ]
 
 [[package]]
-name = "spectrum-generator-proxy"
+name = "baz-generator-proxy"
 version = "1.0.0"
 dependencies = [
  "astroport",
@@ -911,12 +911,12 @@ dependencies = [
  "cw20",
  "schemars",
  "serde",
- "spectrum",
+ "baz",
  "thiserror",
 ]
 
 [[package]]
-name = "spectrum-lp-staking"
+name = "baz-lp-staking"
 version = "1.0.0"
 dependencies = [
  "cosmwasm-schema",
@@ -925,12 +925,12 @@ dependencies = [
  "cw20",
  "schemars",
  "serde",
- "spectrum",
+ "baz",
  "thiserror",
 ]
 
 [[package]]
-name = "spectrum-pair-proxy"
+name = "baz-pair-proxy"
 version = "1.0.0"
 dependencies = [
  "astroport",
@@ -942,7 +942,7 @@ dependencies = [
  "proptest",
  "schemars",
  "serde",
- "spectrum",
+ "baz",
  "thiserror",
 ]
 

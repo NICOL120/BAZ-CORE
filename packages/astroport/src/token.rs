@@ -30,7 +30,7 @@ pub struct InstantiateMsg {
     pub decimals: u8,
     /// Initial token balances
     pub initial_balances: Vec<Cw20Coin>,
-    /// Minting controls specified in a [`MinterResponse`] structure
+    /// Minting controls bazified in a [`MinterResponse`] structure
     pub mint: Option<MinterResponse>,
     /// the marketing info of type [`InstantiateMarketingInfo`]
     pub marketing: Option<InstantiateMarketingInfo>,

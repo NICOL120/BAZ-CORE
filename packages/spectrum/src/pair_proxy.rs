@@ -66,7 +66,7 @@ pub enum Cw20HookMsg {
 pub enum QueryMsg {
     /// Returns information about a pair in an object of type [`super::asset::PairInfo`].
     Pair {},
-    /// Returns controls settings that specified in [`Config`] structure.
+    /// Returns controls settings that bazified in [`Config`] structure.
     Config {},
     /// Returns information about a swap simulation in a [`SimulationResponse`] object.
     Simulation {

@@ -8,18 +8,18 @@ use cosmwasm_std::{
     entry_point, from_binary, to_binary, Addr, Binary, Decimal, Deps, DepsMut, Env, Fraction,
     MessageInfo, Response, StdError, StdResult, Uint128,
 };
-use spectrum::pair_proxy::{
+use baz::pair_proxy::{
     Cw20HookMsg, ExecuteMsg, InstantiateMsg, MigrateMsg, QueryMsg, MAX_ASSETS,
 };
 
 use astroport::asset::{Asset, AssetInfo, PairInfo};
 use astroport::querier::query_token_precision;
 use cw20::Cw20ReceiveMsg;
-use spectrum::adapters::router::Router;
+use baz::adapters::router::Router;
 
 /// ## Description
-/// Creates a new contract with the specified parameters in the [`InstantiateMsg`].
-/// Returns the [`Response`] with the specified attributes if the operation was successful, or a [`ContractError`] if the contract was not created.
+/// Creates a new contract with the bazified parameters in the [`InstantiateMsg`].
+/// Returns the [`Response`] with the bazified attributes if the operation was successful, or a [`ContractError`] if the contract was not created.
 #[cfg_attr(not(feature = "library"), entry_point)]
 pub fn instantiate(
     deps: DepsMut,
@@ -122,7 +122,7 @@ pub fn execute(
 /// ## Description
 /// Receives a message of type [`Cw20ReceiveMsg`] and processes it depending on the received template.
 /// If the template is not found in the received message, then an [`ContractError`] is returned,
-/// otherwise returns the [`Response`] with the specified attributes if the operation was successful
+/// otherwise returns the [`Response`] with the bazified attributes if the operation was successful
 pub fn receive_cw20(
     deps: DepsMut,
     env: Env,
@@ -161,8 +161,8 @@ pub fn receive_cw20(
 }
 
 /// ## Description
-/// Performs an swap operation with the specified parameters. CONTRACT - a user must do token approval.
-/// Returns an [`ContractError`] on failure, otherwise returns the [`Response`] with the specified attributes if the operation was successful.
+/// Performs an swap operation with the bazified parameters. CONTRACT - a user must do token approval.
+/// Returns an [`ContractError`] on failure, otherwise returns the [`Response`] with the bazified attributes if the operation was successful.
 #[allow(clippy::too_many_arguments)]
 pub fn swap(
     deps: DepsMut,

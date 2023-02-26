@@ -1,7 +1,7 @@
 [package]
-name = "spectrum-pair-proxy"
+name = "baz-pair-proxy"
 version = "1.0.0"
-authors = ["Spectrum"]
+authors = ["baz"]
 edition = "2021"
 description = "Proxy contract to Astroport pair"
 
@@ -23,7 +23,7 @@ backtraces = ["cosmwasm-std/backtraces"]
 
 [dependencies]
 astroport = { path = "../../packages/astroport", default-features = false }
-spectrum = { version = "1.0.0", path = "../../packages/spectrum" }
+baz = { version = "1.0.0", path = "../../packages/baz" }
 cw20 = { version = "0.13.2" }
 cosmwasm-std = "1.0"
 cw-storage-plus = {version = "0.13.2"}

@@ -91,7 +91,7 @@
       "additionalProperties": false
     },
     {
-      "description": "Add bridge tokens used to swap specific fee tokens to stablecoin (effectively declaring a swap route)",
+      "description": "Add bridge tokens used to swap bazific fee tokens to stablecoin (effectively declaring a swap route)",
       "type": "object",
       "required": [
         "update_bridges"
@@ -300,7 +300,7 @@
       ]
     },
     "AssetWithLimit": {
-      "description": "This struct holds parameters to help with swapping a specific amount of a fee token to ASTRO.",
+      "description": "This struct holds parameters to help with swapping a bazific amount of a fee token to ASTRO.",
       "type": "object",
       "required": [
         "info"

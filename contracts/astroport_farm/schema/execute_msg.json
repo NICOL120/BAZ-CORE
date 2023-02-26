@@ -752,7 +752,7 @@
       "description": "This is used to store the logo on the blockchain in an accepted format. Enforce maximum size of 5KB on all variants.",
       "oneOf": [
         {
-          "description": "Store the Logo as an SVG file. The content must conform to the spec at https://en.wikipedia.org/wiki/Scalable_Vector_Graphics (The contract should do some light-weight sanity-check validation)",
+          "description": "Store the Logo as an SVG file. The content must conform to the baz at https://en.wikipedia.org/wiki/Scalable_Vector_Graphics (The contract should do some light-weight sanity-check validation)",
           "type": "object",
           "required": [
             "svg"

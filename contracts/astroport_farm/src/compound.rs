@@ -12,9 +12,9 @@ use cw20::{Expiration};
 use astroport::asset::{AssetInfo, AssetInfoExt, token_asset};
 
 use astroport::querier::query_token_balance;
-use spectrum::adapters::asset::AssetEx;
+use baz::adapters::asset::AssetEx;
 
-use spectrum::astroport_farm::CallbackMsg;
+use baz::astroport_farm::CallbackMsg;
 
 /// ## Description
 /// Performs compound by sending LP rewards to compound proxy and reinvest received LP token

@@ -6,7 +6,7 @@ use cosmwasm_std::{
     MessageInfo, Response, StdError, StdResult, Uint128, WasmMsg,
 };
 
-use spectrum::{lp_staking::{
+use baz::{lp_staking::{
     ConfigResponse, Cw20HookMsg, ExecuteMsg, InstantiateMsg, MigrateMsg, QueryMsg,
     RewardInfoResponse, StateResponse, RewardInfoResponseItem,
 }};
@@ -189,7 +189,7 @@ pub fn unbond(deps: DepsMut, env: Env, info: MessageInfo, amount: Uint128) -> Re
 }
 
 // withdraw rewards to executor
-pub fn withdraw(deps: DepsMut, env: Env, info: MessageInfo, spec_amount: Option<Uint128>) -> Result<Response, ContractError> {
+pub fn withdraw(deps: DepsMut, env: Env, info: MessageInfo, baz_amount: Option<Uint128>) -> Result<Response, ContractError> {
     let sender_addr = info.sender;
 
     let config: Config = CONFIG.load(deps.storage)?;
@@ -200,7 +200,7 @@ pub fn withdraw(deps: DepsMut, env: Env, info: MessageInfo, spec_amount: Option<
     compute_reward(&config, &mut state, env.block.time.seconds());
     compute_staker_reward(&state, &mut reward_info)?;
 
-    let amount = spec_amount.unwrap_or(reward_info.pending_reward);
+    let amount = baz_amount.unwrap_or(reward_info.pending_reward);
     reward_info.pending_reward = reward_info.pending_reward.checked_sub(amount)?;
 
     // Store or remove updated rewards info

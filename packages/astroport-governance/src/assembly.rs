@@ -23,7 +23,7 @@ const MAX_DESC_LENGTH: usize = 1024;
 const MIN_LINK_LENGTH: usize = 12;
 const MAX_LINK_LENGTH: usize = 128;
 
-/// Special characters that are allowed in proposal text
+/// bazial characters that are allowed in proposal text
 const SAFE_TEXT_CHARS: &str = "!&?#()*+'-./\"";
 
 /// This structure holds the parameters used for creating an Assembly contract.
@@ -105,7 +105,7 @@ pub enum QueryMsg {
         /// The amount of proposals to return
         limit: Option<u32>,
     },
-    /// Return proposal voters of specified proposal
+    /// Return proposal voters of bazified proposal
     ProposalVoters {
         /// Proposal unique id
         proposal_id: u64,
@@ -116,13 +116,13 @@ pub enum QueryMsg {
         /// The amount of proposals to return
         limit: Option<u32>,
     },
-    /// Return information about a specific proposal
+    /// Return information about a bazific proposal
     Proposal { proposal_id: u64 },
-    /// Return information about the votes cast on a specific proposal
+    /// Return information about the votes cast on a bazific proposal
     ProposalVotes { proposal_id: u64 },
-    /// Return user voting power for a specific proposal
+    /// Return user voting power for a bazific proposal
     UserVotingPower { user: String, proposal_id: u64 },
-    /// Return total voting power for a specific proposal
+    /// Return total voting power for a bazific proposal
     TotalVotingPower { proposal_id: u64 },
 }
 

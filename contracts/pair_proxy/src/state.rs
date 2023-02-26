@@ -2,7 +2,7 @@ use cw_storage_plus::Item;
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 use astroport::asset::{AssetInfo, PairInfo};
-use spectrum::adapters::router::{Router, RouterType};
+use baz::adapters::router::{Router, RouterType};
 
 /// ## Description
 /// This structure describes the main control config of pair.

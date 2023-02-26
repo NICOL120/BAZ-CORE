@@ -120,7 +120,7 @@ impl fmt::Display for BlacklistedVotersResponse {
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub enum QueryMsg {
-    /// Checks if specified addresses are blacklisted
+    /// Checks if bazified addresses are blacklisted
     CheckVotersAreBlacklisted { voters: Vec<String> },
     /// Return the blacklisted voters
     BlacklistedVoters {
@@ -139,13 +139,13 @@ pub enum QueryMsg {
     TotalVotingPower {},
     /// Return the total amount of vxASTRO at some point in the past
     TotalVotingPowerAt { time: u64 },
-    /// Return the total voting power at a specific period
+    /// Return the total voting power at a bazific period
     TotalVotingPowerAtPeriod { period: u64 },
     /// Return the user's current voting power (vxASTRO balance)
     UserVotingPower { user: String },
     /// Return the user's vxASTRO balance at some point in the past
     UserVotingPowerAt { user: String, time: u64 },
-    /// Return the user's voting power at a specific period
+    /// Return the user's voting power at a bazific period
     UserVotingPowerAtPeriod { user: String, period: u64 },
     /// Return information about a user's lock position
     LockInfo { user: String },
@@ -223,7 +223,7 @@ pub fn get_voting_power(
 ///
 /// * **escrow_addr** is an object of type [`impl Into<String>`]. This is the adress of the vxASTRO contract.
 ///
-/// * **user** is an object of type [`impl Into<String>`]. This is the address of the staker for which we calculate the voting power at a specific time.
+/// * **user** is an object of type [`impl Into<String>`]. This is the address of the staker for which we calculate the voting power at a bazific time.
 ///
 /// * **timestamp** is a variable of type [`u64`]. This is the timestamp at which we calculate the staker's voting power.
 pub fn get_voting_power_at(

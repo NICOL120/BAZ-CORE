@@ -1,6 +1,6 @@
 use cosmwasm_std::{CosmosMsg, Decimal, Deps, DepsMut, Env, MessageInfo, Response, StdError, StdResult, Uint128};
 use astroport::asset::{token_asset};
-use spectrum::adapters::asset::AssetEx;
+use baz::adapters::asset::AssetEx;
 use crate::error::ContractError;
 use crate::model::{Config};
 use crate::state::{CONFIG, REWARD_INFO};

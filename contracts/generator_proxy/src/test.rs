@@ -7,7 +7,7 @@ use astroport_governance::utils::{EPOCH_START, WEEK};
 use astroport_governance::voting_escrow::{Cw20HookMsg as VotingCw20HookMsg, ExecuteMsg as VotingExecuteMsg};
 use astroport_governance::escrow_fee_distributor::{ExecuteMsg as FeeExecuteMsg};
 use astroport::restricted_vector::RestrictedVector;
-use spectrum::adapters::generator::Generator;
+use baz::adapters::generator::Generator;
 use crate::astro_gov::{AstroGov, AstroGovUnchecked, Lock};
 use crate::contract::{execute, instantiate, query};
 use crate::error::ContractError;
@@ -729,7 +729,7 @@ fn withdraw(deps: &mut OwnedDeps<MockStorage, MockApi, WasmMockQuerier>) -> Resu
         lp_token: Addr::unchecked(LP_TOKEN),
     });
     let res = execute(deps.as_mut(), env.clone(), info.clone(), msg);
-    assert_error(res, "spectrum_generator_proxy::model::UserInfo not found");
+    assert_error(res, "baz_generator_proxy::model::UserInfo not found");
 
     let msg = ExecuteMsg::Callback(CallbackMsg::Withdraw {
         amount: Uint128::from(101u128),

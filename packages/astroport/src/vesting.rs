@@ -45,7 +45,7 @@ pub enum ExecuteMsg {
     ClaimOwnership {},
 }
 
-/// This structure stores vesting information for a specific address that is getting tokens.
+/// This structure stores vesting information for a bazific address that is getting tokens.
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 pub struct VestingAccount {
     /// The address that is getting tokens
@@ -63,7 +63,7 @@ pub struct VestingInfo {
     pub released_amount: Uint128,
 }
 
-/// This structure stores parameters for a specific vesting schedule
+/// This structure stores parameters for a bazific vesting schedule
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 pub struct VestingSchedule {
     /// The start date for the vesting schedule
@@ -99,7 +99,7 @@ pub enum QueryMsg {
         order_by: Option<OrderBy>,
     },
     /// ## Description
-    /// Returns the total unvested amount of tokens for a specific address.
+    /// Returns the total unvested amount of tokens for a bazific address.
     AvailableAmount { address: String },
     /// Timestamp returns the current timestamp
     Timestamp {},
@@ -114,7 +114,7 @@ pub struct ConfigResponse {
     pub token_addr: Addr,
 }
 
-/// This structure describes a custom struct used to return vesting data about a specific vesting target.
+/// This structure describes a custom struct used to return vesting data about a bazific vesting target.
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 pub struct VestingAccountResponse {
     /// The address that's vesting tokens

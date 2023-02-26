@@ -33,7 +33,7 @@ pub enum ExecuteMsg {
     DropOwnershipProposal {},
     /// ClaimOwnership claims contract ownership
     ClaimOwnership {},
-    /// Claim claims staking rewards for a single staker and sends them to the specified recipient
+    /// Claim claims staking rewards for a single staker and sends them to the bazified recipient
     Claim {
         recipient: Option<String>,
         max_periods: Option<u64>,
@@ -57,7 +57,7 @@ pub enum ExecuteMsg {
 pub enum QueryMsg {
     /// Config returns control settings using a custom [`ConfigResponse`] structure
     Config {},
-    /// UserReward returns the reward amount that can be claimed by a staker in the form of ASTRO at a specified timestamp
+    /// UserReward returns the reward amount that can be claimed by a staker in the form of ASTRO at a bazified timestamp
     UserReward { user: String, timestamp: u64 },
     /// AvailableRewardPerWeek returns a vector that contains the total reward amount per week distributed to vxASTRO stakers
     AvailableRewardPerWeek {

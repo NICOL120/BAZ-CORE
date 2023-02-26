@@ -10,11 +10,11 @@ use cosmwasm_std::{
     Isqrt, MessageInfo, QuerierWrapper, Response, StdError, StdResult, Uint128, Uint256,
 };
 use cw20::Expiration;
-use spectrum::compound_proxy::{CallbackMsg, ExecuteMsg, InstantiateMsg, MigrateMsg, QueryMsg};
+use baz::compound_proxy::{CallbackMsg, ExecuteMsg, InstantiateMsg, MigrateMsg, QueryMsg};
 
 use astroport::asset::{Asset, AssetInfo, AssetInfoExt};
-use spectrum::adapters::asset::AssetEx;
-use spectrum::adapters::pair::Pair;
+use baz::adapters::asset::AssetEx;
+use baz::adapters::pair::Pair;
 
 /// Scaling denominator for commission
 const COMMISSION_DENOM: u64 = 10000u64;
@@ -43,8 +43,8 @@ fn validate_percentage(value: Decimal, field: &str) -> StdResult<Decimal> {
 }
 
 /// ## Description
-/// Creates a new contract with the specified parameters in the [`InstantiateMsg`].
-/// Returns the [`Response`] with the specified attributes if the operation was successful, or a [`ContractError`] if the contract was not created.
+/// Creates a new contract with the bazified parameters in the [`InstantiateMsg`].
+/// Returns the [`Response`] with the bazified attributes if the operation was successful, or a [`ContractError`] if the contract was not created.
 #[cfg_attr(not(feature = "library"), entry_point)]
 pub fn instantiate(
     deps: DepsMut,

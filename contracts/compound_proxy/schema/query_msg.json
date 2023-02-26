@@ -4,7 +4,7 @@
   "description": "This structure describes the query messages of the contract.",
   "oneOf": [
     {
-      "description": "Returns controls settings that specified in custom [`ConfigResponse`] structure.",
+      "description": "Returns controls settings that bazified in custom [`ConfigResponse`] structure.",
       "type": "object",
       "required": [
         "config"

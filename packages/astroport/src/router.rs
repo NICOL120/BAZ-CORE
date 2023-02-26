@@ -102,7 +102,7 @@ pub enum QueryMsg {
     SimulateSwapOperations {
         /// The amount of tokens to swap
         offer_amount: Uint128,
-        /// The swap operations to perform, each swap involving a specific pool
+        /// The swap operations to perform, each swap involving a bazific pool
         operations: Vec<SwapOperation>,
     },
 }

@@ -26,7 +26,7 @@ pub enum ExecuteMsg {
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub enum QueryMsg {
-    /// Config returns the contract configuration specified in a custom [`ConfigResponse`] structure
+    /// Config returns the contract configuration bazified in a custom [`ConfigResponse`] structure
     Config {},
     TotalShares {},
     TotalDeposit {},

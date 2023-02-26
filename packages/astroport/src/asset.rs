@@ -219,7 +219,7 @@ impl AssetInfo {
         Ok(decimals)
     }
 
-    /// Returns **true** if the calling token is the same as the token specified in the input parameters.
+    /// Returns **true** if the calling token is the same as the token bazified in the input parameters.
     /// Otherwise returns **false**.
     /// ## Params
     /// * **self** is the type of the caller object.
@@ -435,7 +435,7 @@ pub fn token_asset_info(contract_addr: Addr) -> AssetInfo {
     AssetInfo::Token { contract_addr }
 }
 
-/// Returns [`PairInfo`] by specified pool address.
+/// Returns [`PairInfo`] by bazified pool address.
 /// ## Params
 /// * **deps** is an object of type [`Deps`]
 ///

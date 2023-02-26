@@ -67,7 +67,7 @@ impl CallbackMsg {
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub enum QueryMsg {
-    /// Returns controls settings that specified in custom [`ConfigResponse`] structure.
+    /// Returns controls settings that bazified in custom [`ConfigResponse`] structure.
     Config {},
     /// Return LP token amount received after compound
     CompoundSimulation {

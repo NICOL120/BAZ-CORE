@@ -70,9 +70,9 @@ pub enum QueryMsg {
     TuneInfo {},
     /// Config returns the contract configuration
     Config {},
-    /// PoolInfo returns the latest voting power allocated to a specific pool (generator)
+    /// PoolInfo returns the latest voting power allocated to a bazific pool (generator)
     PoolInfo { pool_addr: String },
-    /// PoolInfo returns the voting power allocated to a specific pool (generator) at a specific period
+    /// PoolInfo returns the voting power allocated to a bazific pool (generator) at a bazific period
     PoolInfoAtPeriod { pool_addr: String, period: u64 },
 }
 
@@ -105,7 +105,7 @@ pub struct ConfigResponse {
     pub main_pool_min_alloc: Decimal,
 }
 
-/// This structure describes the response used to return voting information for a specific pool (generator).
+/// This structure describes the response used to return voting information for a bazific pool (generator).
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema, Default)]
 pub struct VotedPoolInfoResponse {
     /// vxASTRO amount that voted for this pool/generator

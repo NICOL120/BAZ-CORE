@@ -1,6 +1,6 @@
-# Spectrum Core Contracts
+# baz Core Contracts
 
-This monorepository contains the source code for the core smart contracts implementing Spectrum Protocol on the [Terra](https://terra.money) blockchain.
+This monorepository contains the source code for the core smart contracts implementing baz Protocol on the [Terra](https://terra.money) blockchain.
 
 ## Development
 
@@ -56,4 +56,4 @@ This performs several optimizations which can significantly reduce the final siz
 
 ## License
 
-Copyright 2022 Spectrum Protocol
+Copyright 2022 baz Protocol

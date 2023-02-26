@@ -16,7 +16,7 @@ pub struct OwnershipProposal {
 }
 
 /// Creates a new request to change contract ownership. Returns an [`Err`] on failure or returns the [`Response`]
-/// with the specified attributes if the operation was successful.
+/// with the bazified attributes if the operation was successful.
 /// ## Executor
 /// Only the current contract owner can execute this.
 /// ## Params
@@ -76,7 +76,7 @@ pub fn propose_new_owner(
 }
 
 /// Removes a request to change contract ownership. Returns an [`Err`] on failure or returns the [`Response`]
-/// with the specified attributes if the operation was successful.
+/// with the bazified attributes if the operation was successful.
 /// ## Executor
 /// Only the current owner can execute this.
 /// ## Params
@@ -104,7 +104,7 @@ pub fn drop_ownership_proposal(
 }
 
 /// Claims ownership over the contract. Returns an [`Err`] on failure or returns the [`Response`]
-/// with the specified attributes if the operation was successful.
+/// with the bazified attributes if the operation was successful.
 /// ## Executor
 /// Only the newly proposed owner can execute this.
 /// ## Params
@@ -116,7 +116,7 @@ pub fn drop_ownership_proposal(
 ///
 /// `proposal` is an object of type [`OwnershipProposal`].
 ///
-/// `cb` is a callback function that takes in two parameters of type [`DepsMut`] and [`Addr`] respectively.
+/// `cb` is a callback function that takes in two parameters of type [`DepsMut`] and [`Addr`] rebaztively.
 pub fn claim_ownership(
     deps: DepsMut,
     info: MessageInfo,

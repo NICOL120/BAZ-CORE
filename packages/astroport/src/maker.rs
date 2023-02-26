@@ -45,7 +45,7 @@ pub enum ExecuteMsg {
         /// The maximum spread used when swapping fee tokens to ASTRO
         max_spread: Option<Decimal>,
     },
-    /// Add bridge tokens used to swap specific fee tokens to ASTRO (effectively declaring a swap route)
+    /// Add bridge tokens used to swap bazific fee tokens to ASTRO (effectively declaring a swap route)
     UpdateBridges {
         add: Option<Vec<(AssetInfo, AssetInfo)>>,
         remove: Option<Vec<AssetInfo>>,
@@ -75,7 +75,7 @@ pub enum ExecuteMsg {
 pub enum QueryMsg {
     /// Returns information about the maker configs that contains in the [`ConfigResponse`]
     Config {},
-    /// Returns the balance for each asset in the specified input parameters
+    /// Returns the balance for each asset in the bazified input parameters
     Balances {
         assets: Vec<AssetInfo>,
     },
@@ -116,7 +116,7 @@ pub struct BalancesResponse {
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 pub struct MigrateMsg {}
 
-/// This struct holds parameters to help with swapping a specific amount of a fee token to ASTRO.
+/// This struct holds parameters to help with swapping a bazific amount of a fee token to ASTRO.
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 pub struct AssetWithLimit {
     /// Information about the fee token to swap

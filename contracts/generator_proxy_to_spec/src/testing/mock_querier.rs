@@ -2,7 +2,7 @@ use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
-use spectrum::lp_staking::{
+use baz::lp_staking::{
     RewardInfoResponse, RewardInfoResponseItem,
 };use cosmwasm_std::testing::{MockApi, MockQuerier, MockStorage, MOCK_CONTRACT_ADDR};
 use cosmwasm_std::{
@@ -119,7 +119,7 @@ impl WasmMockQuerier {
                         bond_amount: self.reward_querier.deposit_amount,
                         pending_reward: self.reward_querier.pending_reward,
                         reward_index: Decimal::zero(),
-                        staking_token: "spec0000".to_string(),
+                        staking_token: "baz0000".to_string(),
                     },
                 }))),
                 _ => match from_binary(msg).unwrap() {

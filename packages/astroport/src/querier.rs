@@ -15,13 +15,13 @@ use cw20::{BalanceResponse as Cw20BalanceResponse, Cw20QueryMsg, TokenInfoRespon
 // It's defined at https://github.com/terra-money/core/blob/d8e277626e74f9d6417dcd598574686882f0274c/types/assets/assets.go#L15
 pub const NATIVE_TOKEN_PRECISION: u8 = 6;
 
-/// Returns a native token's balance for a specific account.
+/// Returns a native token's balance for a bazific account.
 /// ## Params
 /// * **querier** is an object of type [`QuerierWrapper`].
 ///
 /// * **account_addr** is an object of type [`impl Into<String>`].
 ///
-/// * **denom** is an object of type [`impl Into<String>`] used to specify the denomination used to return the balance (e.g uluna).
+/// * **denom** is an object of type [`impl Into<String>`] used to bazify the denomination used to return the balance (e.g uluna).
 pub fn query_balance(
     querier: &QuerierWrapper,
     account_addr: impl Into<String>,
@@ -32,7 +32,7 @@ pub fn query_balance(
         .map(|coin| coin.amount)
 }
 
-/// Returns the total balances for all coins at a specified account address.
+/// Returns the total balances for all coins at a bazified account address.
 /// ## Params
 /// * **querier** is an object of type [`QuerierWrapper`].
 ///
@@ -87,7 +87,7 @@ pub fn query_token_symbol(
     Ok(res.symbol)
 }
 
-/// Returns the total supply of a specific token.
+/// Returns the total supply of a bazific token.
 /// ## Params
 /// * **querier** is an object of type [`QuerierWrapper`].
 ///
@@ -106,7 +106,7 @@ pub fn query_supply(
 /// ## Params
 /// * **querier** is an object of type [`QuerierWrapper`].
 ///
-/// * **asset_info** is a reference of type [`AssetInfo`] and contains the asset details for a specific token.
+/// * **asset_info** is a reference of type [`AssetInfo`] and contains the asset details for a bazific token.
 pub fn query_token_precision(querier: &QuerierWrapper, asset_info: &AssetInfo) -> StdResult<u8> {
     let decimals = match asset_info {
         AssetInfo::NativeToken { .. } => NATIVE_TOKEN_PRECISION,
@@ -143,7 +143,7 @@ pub struct FeeInfo {
     pub maker_fee_rate: Decimal,
 }
 
-/// Returns the fee information for a specific pair type.
+/// Returns the fee information for a bazific pair type.
 /// ## Params
 /// * **querier** is an object of type [`QuerierWrapper`].
 ///

@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "AssetWithLimit",
-  "description": "This struct holds parameters to help with swapping a specific amount of a fee token to ASTRO.",
+  "description": "This struct holds parameters to help with swapping a bazific amount of a fee token to ASTRO.",
   "type": "object",
   "required": [
     "info"

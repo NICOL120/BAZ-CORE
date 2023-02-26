@@ -1,9 +1,9 @@
 [package]
-name = "astroport-generator-proxy-to-spec"
+name = "astroport-generator-proxy-to-baz"
 version = "1.0.0"
-authors = ["Spectrum"]
+authors = ["baz"]
 edition = "2021"
-description = "Proxy contract to Spectrum LP staking"
+description = "Proxy contract to baz LP staking"
 
 exclude = [
   # Those files are rust-optimizer artifacts. You might want to commit them for convenience but they should not be part of the source code publication.
@@ -23,7 +23,7 @@ backtraces = ["cosmwasm-std/backtraces"]
 
 [dependencies]
 astroport = { path = "../../packages/astroport", default-features = false }
-spectrum = { version = "1.0.0", path = "../../packages/spectrum" }
+baz = { version = "1.0.0", path = "../../packages/baz" }
 cw20 = { version = "0.13.2" }
 cosmwasm-std = "1.0"
 cw-storage-plus = {version = "0.13.2"}

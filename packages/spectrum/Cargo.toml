@@ -1,9 +1,9 @@
 [package]
-name = "spectrum"
+name = "baz"
 version = "1.0.0"
-authors = ["Spectrum"]
+authors = ["baz"]
 edition = "2021"
-description = "Common Spectrum types"
+description = "Common baz types"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

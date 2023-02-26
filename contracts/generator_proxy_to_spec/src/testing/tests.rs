@@ -5,8 +5,8 @@ use crate::testing::mock_querier::mock_dependencies;
 use astroport::generator_proxy::{
     Cw20HookMsg, ExecuteMsg, InstantiateMsg, QueryMsg, CallbackMsg
 };
-use spectrum::lp_staking::{
-    Cw20HookMsg as SpecCw20HookMsg, ExecuteMsg as SpecExecuteMsg,
+use baz::lp_staking::{
+    Cw20HookMsg as bazCw20HookMsg, ExecuteMsg as bazExecuteMsg,
 };
 use cosmwasm_std::testing::{mock_env, mock_info, MOCK_CONTRACT_ADDR};
 use cosmwasm_std::{from_binary, to_binary, Addr, CosmosMsg, SubMsg, Uint128, WasmMsg};
@@ -19,9 +19,9 @@ fn test_proper_initialization() {
     let msg = InstantiateMsg {
         generator_contract_addr: "generator0000".to_string(),
         pair_addr: "pair0000".to_string(),
-        lp_token_addr: "specusdc0000".to_string(),
+        lp_token_addr: "bazusdc0000".to_string(),
         reward_contract_addr: "reward0000".to_string(),
-        reward_token_addr: "spec0000".to_string(),
+        reward_token_addr: "baz0000".to_string(),
     };
 
     let info = mock_info("addr0000", &[]);
@@ -30,9 +30,9 @@ fn test_proper_initialization() {
     let config: Config = CONFIG.load(deps.as_ref().storage).unwrap();
     assert_eq!("generator0000", config.generator_contract_addr.as_str());
     assert_eq!("pair0000", config.pair_addr.as_str());
-    assert_eq!("specusdc0000", config.lp_token_addr.as_str());
+    assert_eq!("bazusdc0000", config.lp_token_addr.as_str());
     assert_eq!("reward0000", config.reward_contract_addr.as_str());
-    assert_eq!("spec0000", config.reward_token_addr.as_str());
+    assert_eq!("baz0000", config.reward_token_addr.as_str());
 }
 
 #[test]
@@ -42,9 +42,9 @@ fn test_deposit() {
     let msg = InstantiateMsg {
         generator_contract_addr: "generator0000".to_string(),
         pair_addr: "pair0000".to_string(),
-        lp_token_addr: "specusdc0000".to_string(),
+        lp_token_addr: "bazusdc0000".to_string(),
         reward_contract_addr: "reward0000".to_string(),
-        reward_token_addr: "spec0000".to_string(),
+        reward_token_addr: "baz0000".to_string(),
     };
 
     let info = mock_info("addr0000", &[]);
@@ -64,7 +64,7 @@ fn test_deposit() {
     };
 
     // deposit fails when cw20 sender is not generator
-    let info = mock_info("specusdc0000", &[]);
+    let info = mock_info("bazusdc0000", &[]);
     let deposit_msg = ExecuteMsg::Receive(Cw20ReceiveMsg {
         sender: "addr0000".to_string(),
         amount: Uint128::from(100u128),
@@ -78,7 +78,7 @@ fn test_deposit() {
     };
 
     // successfull deposit
-    let info = mock_info("specusdc0000", &[]);
+    let info = mock_info("bazusdc0000", &[]);
     let deposit_msg = ExecuteMsg::Receive(Cw20ReceiveMsg {
         sender: "generator0000".to_string(),
         amount: Uint128::from(100u128),
@@ -89,12 +89,12 @@ fn test_deposit() {
     assert_eq!(
         res.messages,
         vec![SubMsg::new(CosmosMsg::Wasm(WasmMsg::Execute {
-            contract_addr: "specusdc0000".to_string(),
+            contract_addr: "bazusdc0000".to_string(),
             funds: vec![],
             msg: to_binary(&Cw20ExecuteMsg::Send {
                 contract: "reward0000".to_string(),
                 amount: Uint128::from(100u128),
-                msg: to_binary(&SpecCw20HookMsg::Bond {
+                msg: to_binary(&bazCw20HookMsg::Bond {
                     staker_addr: None,
                 }).unwrap(),
             })
@@ -120,9 +120,9 @@ fn test_update_rewards() {
     let msg = InstantiateMsg {
         generator_contract_addr: "generator0000".to_string(),
         pair_addr: "pair0000".to_string(),
-        lp_token_addr: "specusdc0000".to_string(),
+        lp_token_addr: "bazusdc0000".to_string(),
         reward_contract_addr: "reward0000".to_string(),
-        reward_token_addr: "spec0000".to_string(),
+        reward_token_addr: "baz0000".to_string(),
     };
 
     let info = mock_info("addr0000", &[]);
@@ -137,14 +137,14 @@ fn test_update_rewards() {
         vec![SubMsg::new(CosmosMsg::Wasm(WasmMsg::Execute {
             contract_addr: "reward0000".to_string(),
             funds: vec![],
-            msg: to_binary(&SpecExecuteMsg::Withdraw {
+            msg: to_binary(&bazExecuteMsg::Withdraw {
                 amount: None,
             }).unwrap(),
         }))]
     );
 
     deps.querier.with_token_balances(&[(
-        &"spec0000".to_string(),
+        &"baz0000".to_string(),
         &[(&MOCK_CONTRACT_ADDR.to_string(), &Uint128::from(5u128))],
     )]);
     deps.querier
@@ -168,9 +168,9 @@ fn test_send_rewards() {
     let msg = InstantiateMsg {
         generator_contract_addr: "generator0000".to_string(),
         pair_addr: "pair0000".to_string(),
-        lp_token_addr: "specusdc0000".to_string(),
+        lp_token_addr: "bazusdc0000".to_string(),
         reward_contract_addr: "reward0000".to_string(),
-        reward_token_addr: "spec0000".to_string(),
+        reward_token_addr: "baz0000".to_string(),
     };
 
     let info = mock_info("addr0000", &[]);
@@ -195,7 +195,7 @@ fn test_send_rewards() {
     assert_eq!(
         res.messages,
         vec![SubMsg::new(CosmosMsg::Wasm(WasmMsg::Execute {
-            contract_addr: "spec0000".to_string(),
+            contract_addr: "baz0000".to_string(),
             msg: to_binary(&Cw20ExecuteMsg::Transfer {
                 recipient: "addr0000".to_string(),
                 amount: Uint128::new(100),
@@ -213,16 +213,16 @@ fn test_withdraw() {
     let msg = InstantiateMsg {
         generator_contract_addr: "generator0000".to_string(),
         pair_addr: "pair0000".to_string(),
-        lp_token_addr: "specusdc0000".to_string(),
+        lp_token_addr: "bazusdc0000".to_string(),
         reward_contract_addr: "reward0000".to_string(),
-        reward_token_addr: "spec0000".to_string(),
+        reward_token_addr: "baz0000".to_string(),
     };
 
     let info = mock_info("addr0000", &[]);
     let _res = instantiate(deps.as_mut(), mock_env(), info.clone(), msg).unwrap();
 
     deps.querier.with_token_balances(&[(
-        &String::from("specusdc0000"),
+        &String::from("bazusdc0000"),
         &[
             (&String::from(MOCK_CONTRACT_ADDR), &Uint128::new(1)),
         ],
@@ -250,7 +250,7 @@ fn test_withdraw() {
             SubMsg::new(WasmMsg::Execute {
                 contract_addr: "reward0000".to_string(),
                 funds: vec![],
-                msg: to_binary(&SpecExecuteMsg::Unbond {
+                msg: to_binary(&bazExecuteMsg::Unbond {
                     amount: Uint128::new(100),
                 })
                 .unwrap(),
@@ -277,16 +277,16 @@ fn test_emergency_withdraw() {
     let msg = InstantiateMsg {
         generator_contract_addr: "generator0000".to_string(),
         pair_addr: "pair0000".to_string(),
-        lp_token_addr: "specusdc0000".to_string(),
+        lp_token_addr: "bazusdc0000".to_string(),
         reward_contract_addr: "reward0000".to_string(),
-        reward_token_addr: "spec0000".to_string(),
+        reward_token_addr: "baz0000".to_string(),
     };
 
     let info = mock_info("addr0000", &[]);
     let _res = instantiate(deps.as_mut(), mock_env(), info.clone(), msg).unwrap();
 
     deps.querier.with_token_balances(&[(
-        &String::from("specusdc0000"),
+        &String::from("bazusdc0000"),
         &[
             (&String::from(MOCK_CONTRACT_ADDR), &Uint128::new(1)),
         ],
@@ -314,7 +314,7 @@ fn test_emergency_withdraw() {
             SubMsg::new(WasmMsg::Execute {
                 contract_addr: "reward0000".to_string(),
                 funds: vec![],
-                msg: to_binary(&SpecExecuteMsg::Unbond {
+                msg: to_binary(&bazExecuteMsg::Unbond {
                     amount: Uint128::new(100),
                 })
                 .unwrap(),
@@ -341,9 +341,9 @@ fn test_query_reward_info() {
     let msg = InstantiateMsg {
         generator_contract_addr: "generator0000".to_string(),
         pair_addr: "pair0000".to_string(),
-        lp_token_addr: "specusdc0000".to_string(),
+        lp_token_addr: "bazusdc0000".to_string(),
         reward_contract_addr: "reward0000".to_string(),
-        reward_token_addr: "spec0000".to_string(),
+        reward_token_addr: "baz0000".to_string(),
     };
 
     let info = mock_info("addr0000", &[]);
@@ -351,5 +351,5 @@ fn test_query_reward_info() {
 
     let res = query(deps.as_ref(), mock_env(), QueryMsg::RewardInfo {}).unwrap();
     let query_res: Addr = from_binary(&res).unwrap();
-    assert_eq!(query_res, Addr::unchecked("spec0000"));
+    assert_eq!(query_res, Addr::unchecked("baz0000"));
 }

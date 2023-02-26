@@ -6,7 +6,7 @@ use cosmwasm_std::{
     MessageInfo, Response, StdError, StdResult, Uint128, WasmMsg,
 };
 
-use baz::{lp_staking::{
+use spectrum::{lp_staking::{
     ConfigResponse, Cw20HookMsg, ExecuteMsg, InstantiateMsg, MigrateMsg, QueryMsg,
     RewardInfoResponse, StateResponse, RewardInfoResponseItem,
 }};

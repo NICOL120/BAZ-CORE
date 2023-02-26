@@ -9,7 +9,7 @@ use cosmwasm_std::{
     Uint128, WasmMsg, to_binary,
 };
 use cw20::Cw20ExecuteMsg;
-use baz::fees_collector::{AssetWithLimit, CollectSimulationResponse, ExecuteMsg, InstantiateMsg, QueryMsg};
+use spectrum::fees_collector::{AssetWithLimit, CollectSimulationResponse, ExecuteMsg, InstantiateMsg, QueryMsg};
 
 use crate::contract::{execute, instantiate, query};
 use crate::error::ContractError;

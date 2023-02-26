@@ -4,8 +4,8 @@ use crate::contract::{execute, instantiate, query};
 use crate::error::ContractError;
 use crate::mock_querier::mock_dependencies;
 use crate::state::Config;
-use baz::lp_staking::ExecuteMsg::UpdateConfig;
-use baz::lp_staking::{
+use spectrum::lp_staking::ExecuteMsg::UpdateConfig;
+use spectrum::lp_staking::{
     ConfigResponse, Cw20HookMsg, ExecuteMsg, InstantiateMsg, QueryMsg, RewardInfoResponse,
     StateResponse, RewardInfoResponseItem,
 };

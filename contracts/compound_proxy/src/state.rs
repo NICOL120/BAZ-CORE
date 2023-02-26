@@ -3,7 +3,7 @@ use cosmwasm_std::{Decimal};
 use cw_storage_plus::{Item, Map};
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
-use baz::adapters::pair::Pair;
+use spectrum::adapters::pair::Pair;
 
 /// This structure describes the main control config of pair.
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]

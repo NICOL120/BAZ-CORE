@@ -8,8 +8,8 @@ use cosmwasm_std::{
     to_binary, Addr, Coin, CosmosMsg, Decimal, OwnedDeps, Response, StdError, Uint128, WasmMsg,
 };
 use cw20::{Cw20ExecuteMsg, Cw20ReceiveMsg};
-use baz::adapters::router::{Router, RouterType};
-use baz::pair_proxy::{Cw20HookMsg, ExecuteMsg, InstantiateMsg};
+use spectrum::adapters::router::{Router, RouterType};
+use spectrum::pair_proxy::{Cw20HookMsg, ExecuteMsg, InstantiateMsg};
 
 use crate::contract::{execute, instantiate};
 use crate::error::ContractError;

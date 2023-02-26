@@ -12,15 +12,15 @@ use crate::{
 };
 
 use cw20::{Cw20ReceiveMsg, MarketingInfoResponse, MinterResponse};
-use baz::adapters::generator::Generator;
-use baz::adapters::pair::Pair;
+use spectrum::adapters::generator::Generator;
+use spectrum::adapters::pair::Pair;
 
 use crate::bond::{query_reward_info, unbond};
 use crate::state::{STATE};
-use baz::astroport_farm::{
+use spectrum::astroport_farm::{
     CallbackMsg, Cw20HookMsg, ExecuteMsg, InstantiateMsg, MigrateMsg, QueryMsg,
 };
-use baz::compound_proxy::Compounder;
+use spectrum::compound_proxy::Compounder;
 use crate::cw20::{execute_burn, execute_burn_from, execute_decrease_allowance, execute_increase_allowance, execute_send, execute_send_from, execute_transfer, execute_transfer_from, query_all_accounts, query_all_allowances, query_allowance, query_balance, query_token_info};
 
 /// ## Description

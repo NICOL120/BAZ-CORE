@@ -5,10 +5,10 @@ use serde::{Deserialize, Serialize};
 use cosmwasm_std::{Addr, Decimal, StdResult, Storage, Uint128};
 use cw20::AllowanceResponse;
 use astroport::pair::PoolResponse;
-use baz::adapters::generator::Generator;
-use baz::adapters::pair::Pair;
-use baz::compound_proxy::Compounder;
-use baz::helper::{compute_deposit_time, ScalingUint128};
+use spectrum::adapters::generator::Generator;
+use spectrum::adapters::pair::Pair;
+use spectrum::compound_proxy::Compounder;
+use spectrum::helper::{compute_deposit_time, ScalingUint128};
 
 use crate::ownership::OwnershipProposal;
 

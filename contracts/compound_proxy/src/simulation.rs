@@ -9,11 +9,11 @@ use astroport::{asset::AssetInfo, pair::StablePoolConfig, querier::query_token_p
 use astroport::querier::query_supply;
 use cosmwasm_std::{from_binary, CosmosMsg, Deps, StdError, StdResult, Uint128};
 
-use baz::compound_proxy::CompoundSimulationResponse;
+use spectrum::compound_proxy::CompoundSimulationResponse;
 
 use astroport::asset::{Asset, AssetInfoExt};
 use astroport::factory::PairType;
-use baz::adapters::pair::Pair;
+use spectrum::adapters::pair::Pair;
 
 const ITERATIONS: u8 = 32;
 

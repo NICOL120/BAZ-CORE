@@ -3,7 +3,7 @@ use cosmwasm_std::{Addr, CosmosMsg, Decimal, DepsMut, Env, MessageInfo, QuerierW
 use astroport::asset::{token_asset};
 use astroport::querier::query_token_balance;
 use astroport_governance::utils::{get_period, WEEK};
-use baz::adapters::asset::AssetEx;
+use spectrum::adapters::asset::AssetEx;
 use crate::error::ContractError;
 use crate::model::{CallbackMsg, Config, ExecuteMsg, RewardInfo, StakerInfo, StakingState};
 use crate::state::{CONFIG, REWARD_INFO, STAKER_INFO, STAKING_STATE};

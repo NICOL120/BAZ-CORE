@@ -7,9 +7,9 @@ use crate::state::{ScalingOperation, CONFIG, REWARD, STATE, Config};
 
 use cw20::{Expiration};
 
-use spectrum::adapters::asset::AssetEx;
-use spectrum::astroport_farm::{RewardInfoResponse, RewardInfoResponseItem, CallbackMsg};
-use spectrum::helper::{ScalingUint128};
+use baz:adapters::asset::AssetEx;
+use baz:astroport_farm::{RewardInfoResponse, RewardInfoResponseItem, CallbackMsg};
+use baz:helper::{ScalingUint128};
 
 /// ## Description
 /// Send assets to compound proxy to create LP token and bond received LP token on behalf of sender.

@@ -9,7 +9,7 @@ use crate::state::{Config, CONFIG};
 use astroport::generator_proxy::{
     CallbackMsg, ConfigResponse, Cw20HookMsg, ExecuteMsg, InstantiateMsg, MigrateMsg, QueryMsg,
 };
-use spectrum::lp_staking::{
+use baz:lp_staking::{
     Cw20HookMsg as SpecCw20HookMsg, ExecuteMsg as SpecExecuteMsg, RewardInfoResponse as SpecRewardInfoResponse, QueryMsg as SpecQueryMsg
 };
 

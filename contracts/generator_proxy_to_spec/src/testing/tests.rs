@@ -5,7 +5,7 @@ use crate::testing::mock_querier::mock_dependencies;
 use astroport::generator_proxy::{
     Cw20HookMsg, ExecuteMsg, InstantiateMsg, QueryMsg, CallbackMsg
 };
-use spectrum::lp_staking::{
+use baz:lp_staking::{
     Cw20HookMsg as SpecCw20HookMsg, ExecuteMsg as SpecExecuteMsg,
 };
 use cosmwasm_std::testing::{mock_env, mock_info, MOCK_CONTRACT_ADDR};

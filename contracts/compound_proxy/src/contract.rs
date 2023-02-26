@@ -10,11 +10,11 @@ use cosmwasm_std::{
     Isqrt, MessageInfo, QuerierWrapper, Response, StdError, StdResult, Uint128, Uint256,
 };
 use cw20::Expiration;
-use spectrum::compound_proxy::{CallbackMsg, ExecuteMsg, InstantiateMsg, MigrateMsg, QueryMsg};
+use baz:compound_proxy::{CallbackMsg, ExecuteMsg, InstantiateMsg, MigrateMsg, QueryMsg};
 
 use astroport::asset::{Asset, AssetInfo, AssetInfoExt};
-use spectrum::adapters::asset::AssetEx;
-use spectrum::adapters::pair::Pair;
+use baz:adapters::asset::AssetEx;
+use baz:adapters::pair::Pair;
 
 /// Scaling denominator for commission
 const COMMISSION_DENOM: u64 = 10000u64;

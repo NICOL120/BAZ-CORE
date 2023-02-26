@@ -7,7 +7,7 @@ use astroport_governance::utils::{EPOCH_START, WEEK};
 use astroport_governance::voting_escrow::{Cw20HookMsg as VotingCw20HookMsg, ExecuteMsg as VotingExecuteMsg};
 use astroport_governance::escrow_fee_distributor::{ExecuteMsg as FeeExecuteMsg};
 use astroport::restricted_vector::RestrictedVector;
-use spectrum::adapters::generator::Generator;
+use baz:adapters::generator::Generator;
 use crate::astro_gov::{AstroGov, AstroGovUnchecked, Lock};
 use crate::contract::{execute, instantiate, query};
 use crate::error::ContractError;

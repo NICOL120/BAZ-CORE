@@ -3,8 +3,8 @@ use cw20::{Cw20ReceiveMsg};
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 use astroport::restricted_vector::RestrictedVector;
-use baz:adapters::generator::Generator;
-use baz:helper::ScalingUint128;
+use baz::adapters::generator::Generator;
+use baz::helper::ScalingUint128;
 use crate::astro_gov::{AstroGov, AstroGovUnchecked};
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]

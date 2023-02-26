@@ -3,8 +3,8 @@ use crate::state::{Config, BRIDGES};
 use astroport::asset::{Asset, AssetInfo, PairInfo};
 use astroport::querier::{query_pair_info, simulate};
 use cosmwasm_std::{to_binary, Deps, StdResult, Uint128, WasmMsg, CosmosMsg, Addr, QuerierWrapper, Decimal};
-use baz:adapters::pair::Pair;
-use baz:fees_collector::ExecuteMsg;
+use baz::adapters::pair::Pair;
+use baz::fees_collector::ExecuteMsg;
 
 /// The default bridge depth for a fee token
 pub const BRIDGES_INITIAL_DEPTH: u64 = 0;

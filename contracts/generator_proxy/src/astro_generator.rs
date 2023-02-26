@@ -3,7 +3,7 @@ use cw_storage_plus::Map;
 use astroport::asset::AssetInfo;
 use astroport::generator::UserInfoV2;
 use astroport::restricted_vector::RestrictedVector;
-use baz:adapters::generator::Generator;
+use baz::adapters::generator::Generator;
 
 const USER_INFO: Map<(&Addr, &Addr), UserInfoV2> = Map::new("user_info");
 const PROXY_REWARD_ASSET: Map<&Addr, AssetInfo> = Map::new("proxy_reward_asset");

@@ -5,8 +5,8 @@ use astroport::pair::{
 use cosmwasm_std::testing::{mock_env, mock_info, MOCK_CONTRACT_ADDR};
 use cosmwasm_std::{coin, to_binary, Addr, Coin, CosmosMsg, Decimal, Order, StdResult, Uint128, WasmMsg, from_binary, Uint256};
 use cw20::{Cw20ExecuteMsg};
-use baz:adapters::pair::Pair;
-use baz:compound_proxy::{CallbackMsg, ExecuteMsg, InstantiateMsg, QueryMsg};
+use baz::adapters::pair::Pair;
+use baz::compound_proxy::{CallbackMsg, ExecuteMsg, InstantiateMsg, QueryMsg};
 
 use crate::contract::{execute, get_swap_amount, instantiate, query};
 use crate::error::ContractError;

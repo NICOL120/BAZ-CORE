@@ -8,14 +8,14 @@ use cosmwasm_std::{
     entry_point, from_binary, to_binary, Addr, Binary, Decimal, Deps, DepsMut, Env, Fraction,
     MessageInfo, Response, StdError, StdResult, Uint128,
 };
-use baz:pair_proxy::{
+use baz::pair_proxy::{
     Cw20HookMsg, ExecuteMsg, InstantiateMsg, MigrateMsg, QueryMsg, MAX_ASSETS,
 };
 
 use astroport::asset::{Asset, AssetInfo, PairInfo};
 use astroport::querier::query_token_precision;
 use cw20::Cw20ReceiveMsg;
-use baz:adapters::router::Router;
+use baz::adapters::router::Router;
 
 /// ## Description
 /// Creates a new contract with the specified parameters in the [`InstantiateMsg`].

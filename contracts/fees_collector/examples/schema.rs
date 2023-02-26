@@ -3,7 +3,7 @@ use std::fs::create_dir_all;
 
 use cosmwasm_schema::{remove_schemas, schema_for, export_schema};
 
-use baz:fees_collector::{ExecuteMsg, InstantiateMsg, QueryMsg, BalancesResponse, AssetWithLimit, CollectSimulationResponse};
+use baz::fees_collector::{ExecuteMsg, InstantiateMsg, QueryMsg, BalancesResponse, AssetWithLimit, CollectSimulationResponse};
 use spectrum_fees_collector::state::Config;
 
 fn main() {

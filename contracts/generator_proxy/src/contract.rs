@@ -2,7 +2,7 @@ use astroport::common::{propose_new_owner, drop_ownership_proposal, claim_owners
 use cosmwasm_std::{entry_point, DepsMut, Env, MessageInfo, Response, from_binary, Deps, Binary, to_binary, Empty, StdError, Uint128, Decimal};
 use cw20::Cw20ReceiveMsg;
 use astroport_governance::utils::get_period;
-use baz:adapters::generator::Generator;
+use baz::adapters::generator::Generator;
 use crate::bond::{callback_after_bond_changed, callback_after_bond_claimed, callback_claim_rewards, callback_deposit, callback_withdraw, execute_deposit, execute_withdraw, query_deposit, query_pending_token, execute_claim_rewards};
 use crate::oper::{execute_controller_vote, execute_send_income, execute_update_config, execute_update_parameters, query_config, validate_percentage};
 use crate::error::ContractError;
